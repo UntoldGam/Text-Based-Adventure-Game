@@ -1,7 +1,14 @@
 from os.path import isfile 
 from json import dumps, loads
+
+def validateExistance(path):
+	if isfile(path):
+		return True
+	else:
+		return False
+	
+
 def newUser(data):
-    # data = {"user": ..., "health": ...}
 		file = open(f"./users/{data.get('userName')}.json","w")
 		file.write(dumps(data))
 		file.close() 
@@ -13,9 +20,9 @@ def saveUser(data):
 		content = loads(file.read())
 		newData = {}
 		for key in data:
-			print(content, data.get(key))
+			#print(content, data.get(key))
 			newData.update({ f"{key}": data.get(key) })
-			print(newData)
+			#print(newData)
 		file = open(f"./users/{data.get('userName')}.json","w")
 		file.write(dumps(newData))
 		file.close()
