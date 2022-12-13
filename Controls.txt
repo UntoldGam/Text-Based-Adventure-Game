@@ -1,0 +1,14 @@
+SPACE - Start
+^ - Selection Up
+v - Selection Down
+> - Selection Right
+< - Selection Left
+ENTER - Select
+? - Hint
+CTRL - Controls Page
+E - Pick Up
+I - Veiw Inventory
+# - Checkpoint
+P - Pause
+M - Open Map/Veiw Clues
+S - Skip

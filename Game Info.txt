@@ -1,0 +1,50 @@
+Constructs:
+Story from Journal of explorer etc…
+Health Points-(100hp)
+Each action Has a Positive and negative effect
+Choices with Chance
+Checkpoints/lvls. Etc…
+Score= time x multiplier +/- additional bonuses
+Player Inventory
+Multiplier= time/100 * score/100
+
+Text-Based Commands-(.txt)
+
+Narration By Computer, (Storyline)
+
+Consumables:
+Map
+Arrow
+Flint
+Torch
+Sleeping Bag/Hammock
+Backpack
+Rope
+Food
+Water
+Knife/Dagger
+Compass
+
+Set Locations, Puzzles, etc…
+Based in the Jungle/Forest
+Ruins
+Caves
+Village
+Hideouts
+Ravine
+Cliff
+River/Stream
+Waterfall
+ShipWreck
+
+Plot:
+Lost Explores Notebook…
+Search the forest for clues etc…
+You have to locate the ruins to reach the end level
+“X” is found in Ruins at the end of the game
+End level is a Labyrinth in ruins w/ booby traps
+If you get “x” you win the game and save your score
+
+
+
+https://pypi.org/project/sshkeyboard/
