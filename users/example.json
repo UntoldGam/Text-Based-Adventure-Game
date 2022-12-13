@@ -1,1 +1,1 @@
-{ "userName": "example", "health": 100 }
+{"userName": "example", "health": 120, "h_multiplier": 0.2, "passed_locations": ["ruin1", "ruin2", "ruin3"]}
