@@ -1,18 +1,32 @@
 from os.path import isfile 
 from json import dumps, loads
 
-def validateExistance(path):
+def newSave(name, data):
+	if not isfile(f"./saves/{name}.json"):
+		file = open(f"./saves/{name}.json","w")
+		file.write(dumps(data))
+		file.close() 
+
+def validate(path):
 	if isfile(path):
 		return True
 	else:
 		return False
 	
+def fetchUser(username):
+	if isfile(f"./users/{username}.json"):
+		file = open(f"./users/{username}.json","r")
+		content = loads(file.read())
+		file.close()
+		return content
+	else:
+		return False
 
 def newUser(data):
 		file = open(f"./users/{data.get('userName')}.json","w")
 		file.write(dumps(data))
 		file.close() 
-		return "User Created"
+		return True
 
 def saveUser(data):
 	if isfile(f"./users/{data.get('userName')}.json"):
