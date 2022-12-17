@@ -1,4 +1,8 @@
 class Dungeon:
     def __init__(self, data):
+        print(data)
+        print(data.get("name"))
         self.data = data
-        self.name = data.Name
+    def getData(self):
+        print(self.data)
+        return self.data

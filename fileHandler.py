@@ -6,6 +6,14 @@ def newSave(name, data):
 		file = open(f"./saves/{name}.json","w")
 		file.write(dumps(data))
 		file.close() 
+def loadSave(username):
+	if isfile(f"./saves/{username}.json"):
+		file = open(f"./saves/{username}.json")
+		content = loads(file.read())
+		file.close()
+		return content	
+	else:
+		return False
 
 def validate(path):
 	if isfile(path):
