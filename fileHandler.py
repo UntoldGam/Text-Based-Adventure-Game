@@ -7,14 +7,21 @@ def validate(path):
 	else:
 		return False
 
-def openFile(filePath, method, fileContent):
+def openFile(filePath, method, fileContent): 
+	# method is only used when writing to a file using the "w" method
+	# fileContent uses the same principle
+	try:
 		if method:
+			# much more optimised way of file opening as you don't have to manually execute the file.close() method
 			with open(filePath, method) as file:
-				if method == "w":
-					file.write(dumps(fileContent))
-				elif method == "r":
-					return loads(file.read())
-	
+				file.write(dumps(fileContent))
+		elif not method:
+			with open(filePath) as file:
+				return loads(file.read())
+	except:
+		return print("Something went wrong")
+		
+
 def newSave(username, data):
 	path = f"./saves/{username}.json"
 	openFile(path) if validate(path) else openFile(path, "w", data)
