@@ -8,12 +8,14 @@ def validate(path):
 		return False
 
 def openFile(filePath, method, fileContent):
-	with open(filePath, method) as file:
-		action = "write" if method == "w" else "read"
-		if method == "w":
-			file.write(dumps(fileContent))
-		elif method == "r":
-			return loads(file.read())
+	if validate(path):
+		if method:
+			with open(filePath, method) as file:
+				action = "write" if method == "w" else "read"
+				if method == "w":
+					file.write(dumps(fileContent))
+				elif method == "r":
+					return loads(file.read())
 			
 def newSave(username, data):
 	path = f"./saves/{username}.json"
