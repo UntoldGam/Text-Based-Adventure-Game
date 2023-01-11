@@ -12,7 +12,7 @@ def openFile(filePath, method, fileContent):
 	# fileContent uses the same principle
 	try:
 		if method:
-			# much more optimised way of file opening as you don't have to manually execute the file.close() method
+			# new method of opening - removes file.close() = does automatically
 			with open(filePath, method) as file:
 				file.write(dumps(fileContent))
 		elif not method:
@@ -23,12 +23,12 @@ def openFile(filePath, method, fileContent):
 		
 
 def newSave(username, data):
+	# adds a new file to dir /saves as {username}.json
 	path = f"./saves/{username}.json"
 	openFile(path) if validate(path) else openFile(path, "w", data)
 
 def loadSave(username):
 	path = f"./saves/{username}.json"
-	message = ""
 	openFile(path) if validate(path) else print("No save found")
 
 def fetchUser(username):
@@ -36,16 +36,11 @@ def fetchUser(username):
 	openFile(path) if validate(path) else openFile(path, "w", data)
 
 def newUser(data):
-	path = f"./users{data['username']}.json"
+	path = f"./users{data.get('username')}.json"
 	method = "w"
 	openFile(path, method, data)
 
 def saveUser(data):
-	path = f"./users{data['username']}.json"
-	if validate(path):
-		newData = {}
-		for key in data:
-			newData.update({ f"{key}": data.get(key) })
-		openFile(path, "w", newData)
-	elif not validate(path):
-		newUser(data)
+	path = f"./users{data.get('username')}.json"
+	newData = {}
+	openFile(path, "w", newData) if validate(path) else newUser(data)

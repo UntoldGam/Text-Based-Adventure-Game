@@ -16,14 +16,6 @@ set type)
 
 # doesn't include any validation of length just yet, possibly a 5 - 8 maximum due to it being the name of a file 
 #  or we can simplify it into one JSON file or something rather than multiple
-"""
-username=input("What is your username? ")
-if validateExistance(f"./users/{username}.json"):
-    print("Enters game....")
-else:
-    data = {"userName": username, "health": 100, "passed_locations": []}
-    newUser(data)
-"""
 
 username = "None"
 while username == "None":
