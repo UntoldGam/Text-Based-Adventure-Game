@@ -17,14 +17,13 @@ set type)
 # doesn't include any validation of length just yet, possibly a 5 - 8 maximum due to it being the name of a file 
 #  or we can simplify it into one JSON file or something rather than multiple
 
-username = "None"
-while username == "None":
+username = None
+while username == None:
     input_value = input("Please enter your username (max length is 8): ")
     if len(input_value) <= 8:
         username = input_value
-        if validate(f"./users/{username}.json") == False:
-            data = {"userName": username, "health": 100, "passed_locations": []}
-            newUser(data)
+        data = {"username": username, "health": 100, "passed_locations": []}
+        newUser(data)
 data = fetchUser(username)
 if data != False:
     print(data)
