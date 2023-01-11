@@ -8,11 +8,8 @@ def validate(path):
 		return False
 
 def openFile(filePath, method, fileContent): 
-	# method is only used when writing to a file using the "w" method
-	# fileContent uses the same principle
 	try:
 		if method:
-			# new method of opening - removes file.close() = does automatically
 			with open(filePath, method) as file:
 				file.write(dumps(fileContent))
 		elif not method:
@@ -28,6 +25,7 @@ def newSave(username, data):
 	openFile(path) if validate(path) else openFile(path, "w", data)
 
 def loadSave(username):
+	# finds and reads a save file
 	path = f"./saves/{username}.json"
 	openFile(path) if validate(path) else print("No save found")
 
