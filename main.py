@@ -17,17 +17,18 @@ set type)
 # doesn't include any validation of length just yet, possibly a 5 - 8 maximum due to it being the name of a file 
 #  or we can simplify it into one JSON file or something rather than multiple
 
-username = None
-while username == None:
-    input_value = input("Please enter your username (max length is 8): ")
-    if len(input_value) <= 8:
-        username = input_value
-        data = {"username": username, "health": 100, "passed_locations": []}
-        newUser(data)
-data = fetchUser(username)
-if data != False:
-    print(data)
-    print(username)
-    print("Please wait while the game loads/creates your game save.")
-    init(username)
-    
+if __name__ == "__main__":
+    username = None
+    while username == None:
+        input_value = input("Please enter your username (max length is 8): ")
+        if len(input_value) <= 8:
+            username = input_value
+            data = {"username": username, "health": 100, "passed_locations": []}
+            newUser(data)
+    data = fetchUser(username)
+    if data != False:
+        print(data)
+        print(username)
+        print("Please wait while the game loads/creates your game save.")
+        createDungeons(username)
+        
