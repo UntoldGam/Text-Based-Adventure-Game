@@ -1,5 +1,9 @@
 from fileHandler import *
-from init import *
+from locationHandler import *
+
+from sys import stdout
+from time import sleep
+
 # have an init function that makes all the ruins:
 # Populate a python variable (dictionary) with locations AFTER they've gone through the Class Construction
 # Basically:
@@ -17,6 +21,11 @@ set type)
 # doesn't include any validation of length just yet, possibly a 5 - 8 maximum due to it being the name of a file 
 #  or we can simplify it into one JSON file or something rather than multiple
 
+def typewrite(words):
+    for char in words:
+        sleep(0.05)
+        stdout.write(char)
+        stdout.flush()
 if __name__ == "__main__":
     username = None
     while username == None:
@@ -29,6 +38,5 @@ if __name__ == "__main__":
     if data != False:
         print(data)
         print(username)
-        print("Please wait while the game loads/creates your game save.")
-        createDungeons(username)
-        
+        print("Please wait while the game finds your game save.")
+        init(username)
