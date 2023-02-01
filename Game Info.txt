@@ -31,11 +31,15 @@ Ruins
 Caves
 Village
 Hideouts
+
 Ravine
 Cliff
 River/Stream
 Waterfall
 ShipWreck
+
+Dungeons: Bandit Camps
+Safe-Place: Hideouts, 
 
 Plot:
 Lost Explores Notebook…

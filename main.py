@@ -31,8 +31,8 @@ typewrite("Welcome to [Game Name]! a text-based adventure game...")
 print("\n\n-------------------------------------------------------------------\n")
 typewrite("Here you will encounter Challenges, face puzzles and make crucial decisions all of which alter the course of the game and the overall outcome of your Journey...\nDisplayed in the top right corner you will see your Health Points, and Timer, these affect your score at the end of the game...\nListed below includes the controls for the game, you will need to use these and can always refer back to them at any point by pressing [C]...\nAt the end of each level, you will pass a checkpoint this saves your progress, lose all your health and you will go back to your most recent checkpoint so choose wisely...")
 print("\n-------------------------------------------------------------------\n\n")
-Tabledata=([["Control","Key"],["Start","SPACE"],["HINT","?"],["Controls","C"],["Pause","P"],["Veiw Clues","#"],["Veiw Health Points","H"],["Veiw Time","T"]])
-print(tabulate(Tabledata,headers="firstrow", tablefmt="rounded_grid"))
+tabledata=([["Control","Key"],["Start","SPACE"],["HINT","?"],["Controls","C"],["Pause","P"],["Veiw Clues","#"],["Veiw Health Points","H"],["Veiw Time","T"]])
+print(tabulate(tabledata,headers="firstrow", tablefmt="rounded_grid"))
 if __name__ == "__main__":
     username = None
     while username == None:

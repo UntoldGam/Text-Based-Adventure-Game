@@ -2,13 +2,14 @@
 
 from random import randrange
 
-from fileHandler import *
-from classes import dungeon
-Dungeon = dungeon.Dungeon
+from fileHandler import newSave, getData
+from .classes.dungeon import Dungeon
 
 dungeons = []
 types = ["Ruin", "Cave", "Ravine"]
 items = ["Dagger","Clock","Apple","Orange","Orangutan"]
+
+
 
 class Dungeons():
     def __init__(self):
