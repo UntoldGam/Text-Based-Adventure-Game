@@ -1,28 +1,18 @@
-class User:
+from .character import Character
+from ..multipliers import increaseScore
+class User(Character):
     def __init__(self, data):
+        super().__init__(self, data)
         self.name = data.get('username')
-        self.health = data.get('health')
-        self.passed_locations = []
-    
-    def get(self, property):
-        return self[property]
+        self.health = 100 # default health
+        self.score = 0 # default score
+        self.passed_locations = [] # default passed locations
 
-    def set(self, property, newValue):
-        try:
-            self[property] = newValue
-            if self[property] == newValue: print(f"Set {property} to {newValue}")
-        except:
-            return print(f"Couldn't set {property} to {newValue}")
+    def encounterEnemy(self, enemy):
+        self.currentDungeon = enemy.dungeon
+    def defeatEnemy(self, enemy):
+        increaseScore(self.score)
+
+    def beatDungeon(self, dungeon):
         
-            
-    def update(self, property, change, operation):
-        errorMessage=f"Couldn't update {property} by {change} using {operation}."
-        try:
-            if operation == "add":
-                self[property] += change
-            elif operation == "subtract":
-                self[property] -= change
-            else:
-                print(errorMessage)
-        except:
-            print(errorMessage)
+

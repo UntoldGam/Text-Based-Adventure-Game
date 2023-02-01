@@ -1,18 +1,13 @@
-class Enemy:
+from .character import Character
+
+class Enemy(Character):
     def __init__(self, data):
         print(data)
         print(data.get("name"))
-        self.data = data
-        self.name = data.get('name')
-        self.strength = data.get('strength')
-        self.defense = data.get('defense')
-        self.dungeon = data.get('current_dungeon')
-        
-    def getData(self):
-        print(self.data)
-        return self.data
-
-    def complete(self):
-        self.passed = True
+        self.data = data # array
+        self.name = data.get('name') # string
+        self.strength = data.get('strength') # float
+        self.defense = data.get('defense') # float
+        self.dungeon =  data.get('current_dungeon') # Class
 
 

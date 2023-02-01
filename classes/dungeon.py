@@ -1,6 +1,6 @@
-import enemy
+from .enemy import Enemy
 from random import randrange, randint
-
+from ..multipliers import decideDamage
 # attack and defense = randint(5, 50)
 typesOfEnemies = {
     "Goblin": { "name": f"Goblin {randint(1, 1000)}", "strength": randint(5, 50), "defense": randint(5, 50) },
@@ -8,6 +8,7 @@ typesOfEnemies = {
     "Spiders": {"name": f"Spider {randint(1, 1000)}", "strength": randint(5, 50), "defense": randint(5, 50)},
     "Angry_Villager": {"name": f"Angry Villager {randint(1, 1000)}", "strength": randint(5, 50), "defense": randint(5, 50)}
 }
+generatedLoot = []
 class Dungeon:
     def __init__(self, data):
         print(data)
@@ -16,6 +17,7 @@ class Dungeon:
         self.type = data.get('type')
         self.passed = False # whether it's complete or not
         self.enemies = []
+        self.loot = generatedLoot
     def spawnEnemies(self):
         for _ in range(3):
             print(_)
@@ -28,11 +30,6 @@ class Dungeon:
         print(self.data)
         return self.data
 
-    def battle(self):
-
+    def battle(self, player, enemy):
         print("WIP")
-        damage = decideDamage()
-    def complete(self):
-        self.passed = True
-
-
+        damage = decideDamage(player, enemy)
