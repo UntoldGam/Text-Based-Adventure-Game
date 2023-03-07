@@ -1,5 +1,5 @@
 def reduceScore(score, time, health):
-    multiplier = (time / 100) + (health / 100)
+    multiplier = 1 - (time / 100) + (health / 100)
     final_multiplier = time * multiplier
     score *= final_multiplier
     return score
@@ -11,7 +11,7 @@ def increaseScore(score, time, health):
     return score
 
 def decideDamage(player, enemy):
-    # enemyAttack = default damage
+    # enemyAttack = default damage (10)
     # playerDefense = a percentage (below 100)
     # e.g. damage = (enemyAttack / playerHealth) * playerDefense
     # e.g. damageMultiplier = (5 / 100) * 0.5 = 0.025 damage to the player
