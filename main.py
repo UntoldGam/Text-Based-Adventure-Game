@@ -1,5 +1,6 @@
 from fileHandler import *
 from locationHandler import *
+from classes.player import Player
 
 from sys import stdout
 from time import sleep
@@ -24,7 +25,7 @@ set type)
 
 def typewrite(words):
     for char in words:
-        sleep(0.05)
+        sleep(0.03)
         stdout.write(char)
         stdout.flush()
 typewrite("Welcome to [Game Name]! a text-based adventure game...")    
@@ -33,6 +34,7 @@ typewrite("Here you will encounter Challenges, face puzzles and make crucial dec
 print("\n-------------------------------------------------------------------\n\n")
 tabledata=([["Control","Key"],["Start","SPACE"],["HINT","?"],["Controls","C"],["Pause","P"],["Veiw Clues","#"],["Veiw Health Points","H"],["Veiw Time","T"]])
 print(tabulate(tabledata,headers="firstrow", tablefmt="rounded_grid"))
+
 if __name__ == "__main__":
     username = None
     while username == None:
@@ -42,8 +44,9 @@ if __name__ == "__main__":
             data = {"username": username, "health": 100, "passed_locations": []}
             newUser(data)
     data = fetchUser(username)
+    player=Player(data)
     if data != False:
         print(data)
         print(username)
         print("Please wait while the game finds your game save.")
-        init(username)
+        initLocations(player)
