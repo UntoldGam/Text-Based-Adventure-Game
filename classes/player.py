@@ -12,10 +12,36 @@ class Player:
         self.lastCheckpoint = False # if True, restore health
     def set(self, property, newValue):
         self.data[property] = newValue
+    def get(self, property): 
+        return self.data[property]
     
     def increment(self, property, change):
         self.data[property] += change
     def decrement(self, property, change):
         self.data[property] -= change
     
-        
+      
+class PlayerClass(Player):
+    def __init__(self, data) -> None:
+        self.name = data.get('name')
+        self.health = data.get('health')
+        self.attack = data.get('attack')
+        self.defense = data.get('defense')
+        self.gold = data.get('gold')
+        self.inventory = data.get('inventory')
+        self.all_locations = data.get('all_locations')
+        self.passed_locations = data.get('passed_locations')
+        self.lastCheckpoint = data.get('lastCheckpoint')
+        self.data = data.get('data')
+
+    def set(self, property, newValue):
+        super().set(property, newValue)
+
+    def get(self, property):
+        super().get(property)
+    
+    def increment(self, property, change):  
+        super().increment(property, change)
+    def decrement(self, property, change):
+        super().decrement(property, change)
+    

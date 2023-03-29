@@ -1,6 +1,8 @@
-saves
-users
+saves/*
+users/*
 .prettierrc
 TEST.json
+TEST2.json
+TEST3.json
 __pycache__
 classes/__pycache__

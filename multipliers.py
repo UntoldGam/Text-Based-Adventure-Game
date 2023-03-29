@@ -12,7 +12,7 @@ def increaseScore(score, time, health):
     return score
 """
 
-def decideDamage(player, enemy, bonus):
+def decideDamage(player, enemy, bonus=False):
     # enemyAttack = default damage (10)
     # playerDefense = a percentage (below 100)
     # e.g. damage = (enemyAttack / playerHealth) * playerDefense
@@ -20,11 +20,16 @@ def decideDamage(player, enemy, bonus):
     # damage = enemyAttack * damageMultiplier
     # finds the enemyAttack as a % of damageMultiplier
     enemyAttack = enemy.attack
-    playerDefense = player.defense
-    playerHealth = player.health
+    enemyDefense = enemy.defense
+    playerDefense = player.data.get("defense")
+    playerHealth = player.data.get("attack")
 
-    damageMultiplier = (enemyAttack / playerHealth) * playerDefense
-    damage = enemyAttack * damageMultiplier 
+    damageMultiplier = (enemyAttack / enemyDefense) * (playerDefense / 10)  
+    damage = enemyAttack / damageMultiplier
+    #print(damageMultiplier, damage)
     if bonus:
         damage = damage * bonus
-    return damage
+        #print(damage)
+        return damage
+    else:
+        return damage
